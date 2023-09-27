@@ -14,7 +14,8 @@ You can use interfaces, type aliases, or literal objects to define props
 
 Using built in React event types for `onCLick` or `onKeyDown` events
 
-```const App = () => {
+```
+const App = () => {
   function handleOnChange(event: React.FormEvent<HTMLInputElement>):void {
     // ...
   }
@@ -25,7 +26,8 @@ Using built in React event types for `onCLick` or `onKeyDown` events
 
 Alternatively,
 
-```const App = () => {
+```
+const App = () => {
   const handleOnChange:ChangeEventHandler<HTMLInputElement> = (event) => {
     // ...
   }
@@ -37,7 +39,8 @@ Alternatively,
 If we have other properties that aren't represented on the basic React Event types.
 We can "Type Widen" our React Event type to account for these
 
-```interface FormFields {
+```
+interface FormFields {
   email: HTMLInputElement;
   message: HTMLTextAreaElement;
 }
