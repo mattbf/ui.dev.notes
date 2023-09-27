@@ -10,6 +10,46 @@
 
 You can use interfaces, type aliases, or literal objects to define props
 
+// Easiest way to declare a Function Component; return type is inferred.
+
+```
+const App = ({ message }: AppProps) => <div>{message}</div>;
+```
+
+Type widening with built in HTML prop types
+
+```
+import { ComponentPropsWithoutRef } from "react";
+
+// Option 1
+type ButtonProps = {
+  variant?: "primary" | "success" | "warning" | "danger";
+} & ComponentPropsWithoutRef<"button">;
+
+// Option 2
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+  variant?: "primary" | "success" | "warning" | "danger";
+}
+
+const Button: React.FC<ButtonProps> = ({
+  variant,
+  className = "",
+  ...props
+}) => {
+  return (
+    <button {...props} className={`${className} ${variant}`} />
+  );
+};
+
+//or
+const Button = ({variant, className, children, ...props}: ButtonProps) => {
+    return (
+        <button {...props} className={`${className} ${variant}`} />
+    );
+}
+
+```
+
 ## Event Handlers
 
 Using built in React event types for `onCLick` or `onKeyDown` events
