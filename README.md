@@ -1,4 +1,4 @@
-# ui.dev.notes
+# Notes from taking the React w/ Typescript, Typescript, and React.gg courses on ui.dev
 
 ## React Elements and Components
 
