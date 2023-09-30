@@ -214,3 +214,62 @@ if (typeof unknownNumber === "number") {
   theAnswer = 15 + unknownNumber;
 }
 ```
+
+### Creating indexable types and interfaces
+
+```
+interface Fruit {
+  name: string;
+  color: string;
+  sweetness: number;
+  stars: number;
+}
+
+interface FruitCache {
+  [id: string]: Fruit
+}
+
+const fruitCache: FruitCache = {};
+
+async function fetchFruitOrUseCache(id: string) {
+  if (fruitCache[id]) {
+    return fruitCache[id];
+  }
+  const response = await fetch(`https://example.com/fruit/${id}`);
+  const fruit: Fruit = await response.json();
+  fruitCache[id] = fruit;
+  return fruit;
+}
+```
+
+## Enums and Tuples
+
+Enums
+
+```
+enum Seasons {
+  winter,
+  spring,
+  summer,
+  autumn,
+}
+
+function seasonsGreetings(season: Seasons) {
+  if ((season = Seasons.winter)) return "⛄️";
+  // ...
+}
+
+const greeting = seasonsGreetings(Seasons.winter);
+```
+
+Tuples
+
+```
+[number, number]
+```
+
+Literal types. Similar to an enum but this says it can only be one of these four strings
+
+```
+type Seasons = "spring" | "summer" | "autumn" | "winter";
+```
