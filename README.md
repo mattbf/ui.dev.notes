@@ -273,3 +273,6 @@ Literal types. Similar to an enum but this says it can only be one of these four
 ```
 type Seasons = "spring" | "summer" | "autumn" | "winter";
 ```
+
+Using `keyof`
+![using keyof](<CleanShot 2023-09-30 at 11.45.51@2x.png>)
